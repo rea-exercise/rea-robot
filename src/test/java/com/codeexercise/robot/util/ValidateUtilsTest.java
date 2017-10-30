@@ -13,6 +13,25 @@ import static org.junit.Assert.fail;
 public class ValidateUtilsTest {
 
     @Test
+    public void whenNullIsUsedThenExceptionIsThrown() {
+
+        try {
+            ValidateUtils.notNull(null, "Ohh!!! Object is null");
+            fail("Expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+            assertEquals("Ohh!!! Object is null", ex.getMessage());
+        }
+
+    }
+
+    @Test
+    public void whenObjectIsUsedThenNoExceptionIsThrown() {
+
+        ValidateUtils.notNull(new Object(), "Exception should not be thrown");
+        assertTrue(true);
+    }
+
+    @Test
     public void WhenFalseIsUsedThenExceptionIsThrown() {
         try {
             ValidateUtils.isTrue(false,"The validated expression is false");
