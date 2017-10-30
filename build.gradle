@@ -1,5 +1,5 @@
 group 'com.codeexercise'
-version '1.0-SNAPSHOT'
+version '1.0-RELEASE'
 
 apply plugin: 'java'
 
@@ -7,6 +7,16 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+//create a single Jar with all dependencies
+task buildApp(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Toy Robot Application', 'Implementation-Version': version, 'Main-Class': 'com.codeexercise.robot.ConsoleApp'
+    }
+    baseName = project.name + '-app'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 dependencies {
