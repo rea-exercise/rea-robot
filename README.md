@@ -20,4 +20,5 @@ An auto executable jar will be available in the ./build/libs/ directory.
 Simply run  with the provided data file using:
 
 ./gradlew buildApp
-java -jar build/libs/robot-app-1.0-RELEASE.jar -f ./test-data.txt 
+
+java -jar build/libs/robot-app-1.0-RELEASE.jar -f ./test-data.txt
