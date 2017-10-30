@@ -210,6 +210,20 @@ public class ToyRobotTest {
         assertEquals("Robot should be facing NORTH.", Direction.NORTH, robot.getDirection());
     }
 
+    @Test
+    public final void whenReportTheRobotHasNotBeenPlacedOnTheTableThenReturnEmptyString() throws RobotOutsideTableException {
+        String report = robot.report();
+        assertEquals("",report);
+    }
+    @Test
+    public final void whenReportTheRobotReturnStringPrepresentationOfItLocationAndDirection() throws RobotOutsideTableException {
+        Location location = new Location(1, 1);
+
+        // Facing NORTH
+        robot.place(location, Direction.NORTH, table);
+        String report = robot.report();
+        assertEquals("1,1,NORTH",report);
+    }
 
 
     @After

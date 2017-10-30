@@ -85,5 +85,18 @@ public class ToyRobot implements Robot {
             return false;
         return true;
     }
+
+    @Override
+    public String report() {
+        if(!isPlacedOnTable())
+            return "";
+        StringBuilder result = new StringBuilder();
+        result.append(this.getLocation().getX())
+                .append(",")
+                .append(this.getLocation().getY())
+                .append(",")
+                .append(this.getDirection().getName());
+        return result.toString();
+    }
 }
 

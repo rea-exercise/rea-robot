@@ -101,4 +101,9 @@ public interface Robot {
      * @return true if the robot has been placed on the table; false otherwise.
      */
     boolean isPlacedOnTable();
+
+    /**
+     * Report robot current location and direction into String presentation
+     */
+    String report();
 }
