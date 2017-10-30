@@ -4,6 +4,7 @@ import com.codeexercise.robot.Robot;
 import com.codeexercise.robot.RobotInputEventListener;
 import com.codeexercise.robot.Table;
 import com.codeexercise.robot.display.Display;
+import com.codeexercise.robot.display.impl.ConsoleDisplay;
 import com.codeexercise.robot.event.RobotInputEvent;
 import com.codeexercise.robot.exception.RobotInputException;
 import com.codeexercise.robot.exception.RobotOutsideTableException;
@@ -14,7 +15,14 @@ public class ToyRobotApplication implements RobotInputEventListener {
     private final Robot robot;
     private final Table table;
     private final Display display;
+    private static final int TABLE_SIZE = 5;
 
+
+    public ToyRobotApplication(){
+        this.display = new ConsoleDisplay(System.out);
+        this.table = new SquareTable(TABLE_SIZE);
+        this.robot = new ToyRobot();
+    }
 
     public ToyRobotApplication(Robot robot, Table table, Display display){
         this.robot = robot;
